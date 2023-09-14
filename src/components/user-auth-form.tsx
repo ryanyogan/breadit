@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { signIn } from "next-auth/react";
 import React, { useState } from "react";
 import { useToast } from "../hooks/use-toast";
 import { Icons } from "./icons";
@@ -19,7 +20,7 @@ export default function UserAuthForm({
     setIsLoading(true);
 
     try {
-      throw new Error();
+      await signIn("google");
     } catch (error) {
       toast({
         title: "There was a problem",
